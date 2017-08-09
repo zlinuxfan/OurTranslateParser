@@ -1,3 +1,4 @@
+import org.jsoup.nodes.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.jsoup.nodes.Document;
@@ -36,11 +37,12 @@ public class Crater {
 
         for (URL url: resources) {
 
-//            Page page = createPage(url, guidOfElement.next());
+            Page page = createPage(url);
 //            System.out.println("name: " + page.getNameOfElement());
 //            System.out.println("text: " + page.getBriefDescriptionElement());
 //            System.out.println("title: " + page.getElementTitle());
-//            System.out.println("descr: " + page.getElementDescription());
+//            System.out.println("description: " + page.getElementDescription());
+//            System.out.println("keyword: " + page.getElementKeywords());
 //            System.out.println();
 
             pages.add(createPage(url));
@@ -56,7 +58,7 @@ public class Crater {
                 System.out.println("File name: " + fileName);
             }
 
-            if (counter > 9) {
+            if (counter > 3) {
                 break;
             }
 
@@ -66,41 +68,73 @@ public class Crater {
 
     private static Page createPage(URL url) throws IOException {
         Document document = getDocument(url.toString());
-        Elements nameOfElement = document.select("h1.entry-title");
-        Elements textOfElement = document.select("div.td-main-content");
-        Elements title = document.select("head title");
-        Elements description = (document.select("meta[name=description]"));
 
-        ArrayList<OnceText> onceTexts = new ArrayList<>();
+        Elements head = document.select("head");
+        Elements keywords = head.select("meta[name=keywords]");
+        Elements description = head.select("meta[http-equiv=description]");
+        Elements title = head.select("title");
 
-        for (int size = onceTexts.size(); size < NUMBER_TEXT_BOX; size++) {
-            onceTexts.add(new OnceText("", false));
-        }
+        Elements ukPanelBox = document.select("div.uk-panel-box");
+        Elements nameOfElement = ukPanelBox.select("h1");
 
-        ArrayList<UrlInfo> urlInfos = new ArrayList<>();
-        Google google = new Google();
-        try {
-            urlInfos = google.find(nameOfElement.html());
-        } catch (Exception e) {
-            log.error("    error: \"" + nameOfElement.html() + "\" is not processed. Check internet or capcha.");
-        }
+        Elements div = ukPanelBox.select("div");
+        Element div_1 = div.next().first();
+        Element div_2 = div.next().next().first();
+        Element div_3 = div.next().next().next().first();
 
-        for (int size = urlInfos.size(); size < NUMBER_ELEMENT; size++) {
-            urlInfos.add(new UrlInfo("", "", "", ""));
-        }
+        String textOfElement = String.valueOf(div_1) +
+                div_2 +
+                div_3 +
+                ukPanelBox.select("hr");
+
+        ArrayList<OnceText> onceTexts = createOnceTexts();
+
+        ArrayList<UrlInfo> urlInfos = createUrlInfos(ukPanelBox);
 
         return new Page.Builder(
                 "",
                 nameOfElement.html(),
-                textOfElement.eachText().get(0),
+                textOfElement,
                 "",
                 ((toTransliteration(nameOfElement.html())).replace(" ", "-")),
                 onceTexts,
                 urlInfos
         ).elementDescription(description.attr("content"))
                 .elementTitle(title.text())
+                .elementKeywords(keywords.attr("content"))
                 .guidOfGroup("")
                 .build();
+    }
+
+    private static ArrayList<OnceText> createOnceTexts() {
+        ArrayList<OnceText> onceTexts = new ArrayList<>();
+
+        for (int size = onceTexts.size(); size < NUMBER_TEXT_BOX; size++) {
+            onceTexts.add(new OnceText("", false));
+        }
+
+        return onceTexts;
+    }
+
+    private static ArrayList<UrlInfo> createUrlInfos(Elements ukPanelBox) {
+        ArrayList<UrlInfo> urlInfos = new ArrayList<>();
+
+        Elements li_div = ukPanelBox.select("li div.uk-margin");
+
+        for (Element el : li_div) {
+            UrlInfo urlInfo = new UrlInfo(
+                    "ourSite",
+                    el.select("div.uk-margin a").attr("href"),
+                    el.select("div.uk-margin a").text(),
+                    el.select("div.uk-margin p").text()
+            );
+            urlInfos.add(urlInfo);
+        }
+
+        for (int size = urlInfos.size(); size < NUMBER_ELEMENT; size++) {
+            urlInfos.add(new UrlInfo("OurSite", "", "", ""));
+        }
+        return urlInfos;
     }
 
     private static ArrayList<URL> readResource() {
