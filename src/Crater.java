@@ -82,10 +82,10 @@ public class Crater {
         Element div_2 = div.next().next().first();
         Element div_3 = div.next().next().next().first();
 
-        String textOfElement = String.valueOf(div_1) +
-                div_2 +
-                div_3 +
-                ukPanelBox.select("hr");
+        String textOfElement = ""; //String.valueOf(div_1) +
+//                div_2 +
+//                div_3 +
+//                ukPanelBox.select("hr");
 
         ArrayList<OnceText> onceTexts = createOnceTexts();
 
@@ -119,14 +119,15 @@ public class Crater {
     private static ArrayList<UrlInfo> createUrlInfos(Elements ukPanelBox) {
         ArrayList<UrlInfo> urlInfos = new ArrayList<>();
 
-        Elements li_div = ukPanelBox.select("li div.uk-margin");
+        Elements li_div_a = ukPanelBox.select("li div.uk-margin a");
+        Elements li_div_p = ukPanelBox.select("li div.uk-margin p");
 
-        for (Element el : li_div) {
+        for (int i =0; i < li_div_a.size(); i++) {
             UrlInfo urlInfo = new UrlInfo(
-                    "ourSite",
-                    el.select("div.uk-margin a").attr("href"),
-                    el.select("div.uk-margin a").text(),
-                    el.select("div.uk-margin p").text()
+                    "OurSite",
+                    li_div_a.get(i).attr("href"),
+                    li_div_a.get(i).text(),
+                    li_div_p.get(i).text()
             );
             urlInfos.add(urlInfo);
         }
