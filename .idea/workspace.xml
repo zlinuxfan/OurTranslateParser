@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08ba1086-0421-4227-a7da-1e74e049ed40" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/result/1-3.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/result/4-6.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/result/7-9.csv" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OurTranslateParser.iml" afterPath="$PROJECT_DIR$/OurTranslateParser.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/resource.txt" afterPath="$PROJECT_DIR$/data/resource.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Crater.java" afterPath="$PROJECT_DIR$/src/Crater.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -90,6 +84,11 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Sergey Chikunkov &lt;sergey.chikunkov@comodo.od.ua&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
@@ -112,6 +111,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="3600" />
     <option name="y" value="24" />
     <option name="width" value="1920" />
     <option name="height" value="1056" />
@@ -299,15 +299,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1502267789844</updated>
-      <workItem from="1502267796439" duration="8859000" />
+      <workItem from="1502267796439" duration="9006000" />
     </task>
+    <task id="LOCAL-00001" summary="Implement parser.">
+      <created>1502280009022</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1502280009022</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8859000" />
+    <option name="totallyTimeSpent" value="9006000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1920" height="1056" extended-state="6" />
+    <frame x="3600" y="24" width="1920" height="1056" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -343,6 +351,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Implement parser." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement parser." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
