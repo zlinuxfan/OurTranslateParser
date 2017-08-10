@@ -315,7 +315,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1502267789844</updated>
-      <workItem from="1502267796439" duration="16037000" />
+      <workItem from="1502267796439" duration="16061000" />
     </task>
     <task id="LOCAL-00001" summary="Implement parser.">
       <created>1502280009022</created>
@@ -338,11 +338,18 @@
       <option name="project" value="LOCAL" />
       <updated>1502355128702</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="idea conf">
+      <created>1502355155926</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1502355155926</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16037000" />
+    <option name="totallyTimeSpent" value="16061000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1920" height="1056" extended-state="6" />
@@ -386,7 +393,8 @@
     <MESSAGE value="Implement parser." />
     <MESSAGE value="Bug fix." />
     <MESSAGE value="Bug fix and fix uppercase in link." />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fix and fix uppercase in link." />
+    <MESSAGE value="idea conf" />
+    <option name="LAST_COMMIT_MESSAGE" value="idea conf" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
