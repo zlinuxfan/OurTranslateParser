@@ -82,10 +82,9 @@ public class Crater {
         Element div_2 = div.next().next().first();
         Element div_3 = div.next().next().next().first();
 
-        String textOfElement = ""; //String.valueOf(div_1) +
-//                div_2 +
-//                div_3 +
-//                ukPanelBox.select("hr");
+        String textOfElement = div_1.toString().replace("\n", "") +
+                div_2.toString().replace("\n", "") +
+                div_3.toString().replace("\n", "");
 
         ArrayList<OnceText> onceTexts = createOnceTexts();
 
@@ -94,8 +93,8 @@ public class Crater {
         return new Page.Builder(
                 "",
                 nameOfElement.html(),
-                textOfElement,
                 "",
+                textOfElement,
                 ((toTransliteration(nameOfElement.html())).replace(" ", "-")),
                 onceTexts,
                 urlInfos
